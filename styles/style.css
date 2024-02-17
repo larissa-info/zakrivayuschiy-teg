@@ -18,7 +18,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font), sans-serif;
-  font-weight: 400;
+  font-variation-settings: 'wght' 400;
   background-color: var(--bg-color);
   color: var(--accent-color);
   background-image: var(--bg-image);
@@ -159,6 +159,7 @@
 .subtitle {
   display: inline-block;
   font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wght' 700;
   font-size: 18px;
   line-height: 121%;
   font-weight: var(--title-weight);
@@ -175,6 +176,7 @@
 
 .content__paragraph {
   font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wght' 400;
   font-size: 18px;
   line-height: 117%;
   padding-top: 22px;
