@@ -18,7 +18,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: "wght" var(--text-weight);
   background-color: var(--bg-color);
   color: var(--accent-color);
   background-image: var(--bg-image);
@@ -51,6 +51,9 @@
 @media (width <= 375px) {
   :root {
     --width-card: 100%;
+  }
+  a.logo {
+    font-size: clamp(2.625rem, 0.5385rem + 10.7692vw, 3.0625rem);
   }
 }
 
@@ -159,7 +162,7 @@
 .subtitle {
   display: inline-block;
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: "wght" var(--title-weight);
   font-size: 18px;
   line-height: 121%;
   font-weight: var(--title-weight);
@@ -176,7 +179,7 @@
 
 .content__paragraph {
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: "wght" var(--text-weight);
   font-size: 18px;
   line-height: 117%;
   padding-top: 22px;
@@ -202,16 +205,16 @@
 .card__like-button {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 130px;
   position: relative;
   border: none;
   outline: 2px solid var(--accent-color);
   background-color: transparent;
-  padding-top: 9px;
-  padding-right: 35px;
-  padding-left: 35px;
-  padding-bottom: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-right: 2px;
+  margin-bottom: 4px;
   box-shadow: 0 0 0 0 var(--accent-color);
   transition: box-shadow 0.3s ease, color 1s ease;
   overflow: hidden;
@@ -269,6 +272,7 @@
   line-height: 111%;
   position: relative;
   z-index: 1;
+  margin-top: 2px;
 }
 
 .like-icon {
@@ -291,8 +295,10 @@
   background-color: var(--bg-color);
   border: none;
   outline: 2px solid var(--accent-color);
-  padding-top: 14px;
+  padding-top: 12px;
   padding-bottom: 14px;
+  padding-right: 20px;
+  padding-left: 20px;
   min-width: 310px;
   max-width: 335px;
 
@@ -301,7 +307,7 @@
   overflow: hidden;
 }
 
-@media (376px <= width <= 1440px) {
+@media (376px <= width) {
   .footer__floppy {
     width: 21px;
     height: 21px;
