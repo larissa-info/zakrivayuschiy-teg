@@ -12,12 +12,12 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
-@keyframes arrow {
+@keyframes slideInFromLeft {
   from {
-    left: -13px;
+    left: -15px;
   }
   to {
-    left: -9px;
+    left: -11px;
   }
 }
 
@@ -25,8 +25,8 @@
   fill-opacity: 0;
 }
 
-.core {
-  fill: var(--bg-color, #ffffff);
+.like-icon .core {
+  fill: transparent;
   transition: fill 0.3s 0.03s linear;
 }
 
@@ -40,19 +40,23 @@
   transition: fill 0.3s linear;
 }
 
-.main-body {
-  transition: fill 0.3s 0.05s linear;
-  fill: none;
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--heart-contour, #000);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:active .main-body {
   fill: var(--heart-sparks, red);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon .contour {
+  fill: var(--heart-contour, #000);
 }
 
 .like-icon.is-liked .core {
@@ -70,7 +74,7 @@
   transition: fill 0.3s 0.06s linear;
 }
 
-@keyframes sparks {
+@keyframes fadeIn {
   from {
     fill-opacity: 0;
   }
@@ -81,10 +85,10 @@
 
 @keyframes heart-scale {
   from {
-    transform: scale(100%);
+    transform: scale(1);
   }
   to {
-    transform: scale(150%);
+    transform: scale(1.5);
   }
 }
 
@@ -92,17 +96,17 @@
   animation-name: heart-scale;
   animation-duration: 0.3s;
   animation-iteration-count: 1;
-  animation-direction: reverse;
+  animation-direction: alternate;
   animation-timing-function: ease-in;
   animation-delay: 0.1s;
   transform-origin: center;
 }
 
 .like-icon.is-liked .sparks {
-  animation-name: sparks;
+  animation-name: fadeIn;
   animation-duration: 0.3s;
   animation-iteration-count: 1;
-  animation-direction: reverse;
+  animation-direction: alternate;
   animation-timing-function: ease-in;
   animation-delay: 0.3s;
 }
