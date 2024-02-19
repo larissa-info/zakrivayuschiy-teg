@@ -21,7 +21,7 @@
   font-variation-settings: "wght" var(--text-weight);
   background-color: var(--bg-color, #fff);
   color: var(--accent-color, #000);
-  background-image: var(--bg-image);
+  background-image: var(--bg-image, #fff);
   background-attachment: fixed;
   background-repeat: repeat;
 }
@@ -45,7 +45,7 @@
   margin-top: 100px;
   margin-bottom: 100px;
   font-family: var(--accent-font, monospace);
-  font-weight: var(--text-weight);
+  font-weight: var(--text-weight, 400);
   text-align: center;
   outline: 2px solid var(--accent-color, #000);
 }
@@ -171,10 +171,10 @@
 .subtitle {
   display: inline-block;
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: "wght" var(--title-weight);
+  font-variation-settings: "wght" var(--title-weight, 700);
   font-size: 18px;
   line-height: 121%;
-  font-weight: var(--title-weight);
+  font-weight: var(--title-weight, 700);
   padding-left: 12px;
   padding-top: 6px;
   padding-bottom: 3px;
@@ -188,7 +188,7 @@
 
 .content__paragraph {
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: "wght" var(--text-weight);
+  font-variation-settings: "wght" var(--text-weight, 400);
   font-size: 18px;
   line-height: 117%;
   padding-top: 22px;
