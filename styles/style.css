@@ -37,6 +37,10 @@
   cursor: pointer;
 }
 
+.button:focus-visible {
+  outline: 2px solid var(--accent-color, #000);
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -59,12 +63,17 @@
   outline-offset: -2px;
 }
 
-@media (width <= 375px) {
+@media (width <= 376px) {
   :root {
     --width-card: 100%;
   }
   a.logo {
     font-size: clamp(2.625rem, 0.5385rem + 10.7692vw, 3.0625rem);
+  }
+  span.footer__button-text {
+    margin-left: 0px;
+    margin-top: 8px;
+    margin-bottom: -2px;
   }
 }
 
@@ -272,10 +281,6 @@
   border: none;
 }
 
-.card__icon-button:focus-visible {
-  outline: 2px solid var(--accent-color, #000);
-}
-
 .button__text {
   font-family: var(--accent-font, monospace);
   font-size: 14px;
@@ -306,9 +311,8 @@
   padding-right: 20px;
   padding-left: 20px;
   min-width: 310px;
-  max-width: 335px;
-
   color: currentColor;
+  box-shadow: 0 0 0 0 var(--accent-color, #000);
   transition: box-shadow 0.3s ease, color 1s ease;
   overflow: hidden;
 }
