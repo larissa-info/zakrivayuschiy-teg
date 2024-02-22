@@ -408,8 +408,6 @@
   color: var(--accent-color);
 }
 
-
-
 .dialog__text {
   display: inline-block;
   font-family: var(--accent-font, monospace);
@@ -422,7 +420,6 @@
 .dialog[open] .dialog__memory {
   display: flex;
   gap: 20px;
-
 }
 
 .dialog__floppy {
@@ -430,7 +427,6 @@
   height: 39px;
   display: inline-block;
 }
-
 
 .dialog[open] {
   display: flex;
@@ -440,13 +436,11 @@
   padding: 30px;
 }
 
-
 .dialog__button {
   min-width: 257px;
   max-width: 293px;
   outline: 2px solid var(--accent-color);
   padding: 12px 130px;
- 
 }
 
 dialog::backdrop {
@@ -462,7 +456,7 @@ dialog::backdrop {
 }
 
 .filter-saturate {
-  filter: saturate(125%)
+  filter: saturate(125%);
 }
 
 .filter-invert {
