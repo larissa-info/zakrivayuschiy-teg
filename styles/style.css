@@ -28,7 +28,6 @@
 
 .button {
   border: none;
-  outline: none;
   background-color: transparent;
   font-family: var(--accent-font, monospace);
 }
@@ -39,6 +38,10 @@
 
 .button:focus-visible {
   outline: 2px solid var(--accent-color, #000);
+}
+
+.button:focus {
+  border: none;
 }
 
 .header {
@@ -282,7 +285,8 @@
 }
 
 .card__like-button:focus {
-  outline: none;
+  outline: 2px solid var(--accent-color, #000);
+  box-shadow: 2px 2px 0 0 var(--accent-color, #000);
 }
 
 .card__like-button:focus-visible {
