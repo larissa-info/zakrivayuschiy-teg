@@ -227,11 +227,13 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-  padding-left: 1px;
-  padding-right: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .card__label {
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 
