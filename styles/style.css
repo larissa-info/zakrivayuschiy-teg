@@ -14,10 +14,6 @@
 
 */
 
-* {
-  outline: 1px solid red;
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -25,14 +21,13 @@
   font-variation-settings: "wght" var(--text-weight, 400);
   background-color: var(--bg-color, #fff);
   color: var(--accent-color, #000);
-  background-image: var(--bg-image);
+  background-image: var(--bg-image-gradient);
+  background-size: cover;
   background-attachment: fixed;
-  background-repeat: repeat;
 }
 
 .button {
   border: none;
-  outline: none;
   background-color: transparent;
   font-family: var(--accent-font, monospace);
 }
@@ -42,7 +37,11 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--accent-color, #000);
+  border: 2px solid var(--accent-color, #000);
+}
+
+.button:focus {
+  outline: none;
 }
 
 .header {
@@ -56,6 +55,12 @@
   font-weight: var(--text-weight, 400);
   text-align: center;
   outline: 2px solid var(--accent-color, #000);
+}
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .card {
@@ -79,6 +84,14 @@
     margin-top: 8px;
     margin-bottom: -2px;
   }
+  span.label {
+    top: 26px;
+    right: 13px;
+  }
+  svg.footer__floppy {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .logo {
@@ -88,6 +101,15 @@
   padding-right: 14px;
   padding-left: 14px;
   margin-top: -16px;
+}
+
+.logo:focus-visible {
+  outline: none;
+}
+
+.logo:focus {
+  border: none;
+  outline: none;
 }
 
 .title {
@@ -126,6 +148,11 @@
   border: none;
 }
 
+.theme-menu__item:focus {
+  outline: none;
+  border: none;
+}
+
 .theme-menu__button::after {
   content: "";
   position: absolute;
@@ -147,6 +174,11 @@
   color: var(--accent-color-focus, rgba(0, 0, 0, 0.6));
   transition: color 0.3s;
   transition-timing-function: ease;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+  border: none;
 }
 
 .theme-menu__button:disabled {
@@ -197,6 +229,42 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-top: 2px solid var(--accent-color, #000);
+  border-bottom: 2px solid var(--accent-color, #000);
+}
+
+.card__label {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  font-family: var(--accent-font, monospace);
+  font-variation-settings: "wght" var(--text-weight, 400);
+  font-size: 14px;
+  line-height: 14px;
+  top: 30px;
+  right: 27px;
+  color: var(--accent-color);
+  opacity: 50%;
+  text-shadow: -1px 0 var(--label-stroke, #fff), 0 1px var(--label-stroke, #fff),
+    1px 0 var(--label-stroke, #fff), 0 -1px var(--label-stroke, #fff);
+  mix-blend-mode: hard-light;
+}
+
+@supports (
+  (text-stroke: 1px var(--label-stroke, #fff)) or
+    (-webkit-text-stroke: 1px var(--label-stroke, #fff))
+) {
+  .label {
+    -webkit-text-stroke: 1px var(--label-stroke, #fff);
+    text-stroke: 1px var(--label-stroke, #fff);
+    text-shadow: none;
+  }
 }
 
 .content__paragraph {
@@ -216,6 +284,7 @@
 
 .like-button {
   display: flex;
+  gap: 4px;
   background-color: var(--bg-color, #fff);
   justify-content: end;
   align-items: center;
@@ -225,8 +294,13 @@
 }
 
 .like-icon {
-  min-width: 39px;
-  min-height: 36px;
+  width: 39px;
+  height: 36px;
+}
+
+.like-icon:focus {
+  outline: none;
+  border: none;
 }
 
 .card__like-button {
@@ -234,26 +308,27 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  outline: 2px solid var(--accent-color, #000);
-  min-width: 130px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  border: 2px solid var(--accent-color, #000);
+  min-width: 131px;
+  padding-top: 9px;
+  padding-bottom: 9px;
   padding-right: 22px;
   padding-left: 22px;
   margin-right: 2px;
-  margin-bottom: 4px;
   box-shadow: 0 0 0 0 var(--accent-color, #000);
   transition: box-shadow 0.3s ease, color 1s ease;
   overflow: hidden;
 }
 
-.card__like-button:focus {
+.card__like-button:focus-visible {
   outline: none;
+  border: 2px solid var(--accent-color, #000);
+  box-shadow: 2px 2px 0 0 var(--accent-color, #000);
 }
 
-.card__like-button:focus-visible {
-  outline: 2px solid var(--accent-color, #000);
-  box-shadow: 2px 2px 0 0 var(--accent-color, #000);
+.card__like-button:focus {
+  outline: none;
+  border: 2px solid var(--accent-color, #000);
 }
 
 .card__like-button::after {
@@ -272,17 +347,29 @@
   transform: translateX(0);
 }
 
-.card__like-button:hover {
-  color: var(--bg-color, #fff);
-}
-
 .card__icon-button {
-  color: var(--accent-color, #000);
-  min-height: 36px;
+  padding: 0;
+  height: 39.5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  transition: border-color 0.3s ease;
 }
 
 .card__icon-button:focus {
+  outline: none;
   border: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--accent-color, #000);
 }
 
 .button__text {
@@ -293,39 +380,36 @@
   position: relative;
   z-index: 1;
   margin-top: 2px;
+  color: var(--button-color, #fff);
+  mix-blend-mode: difference;
 }
 
 .footer {
   background-color: transparent;
   padding-left: 36px;
   padding-right: 36px;
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 103px;
   display: flex;
   justify-content: center;
 }
 
 .footer__button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   position: relative;
   background-color: var(--bg-color, #fff);
-  outline: 2px solid var(--accent-color, #000);
+  border: 2px solid var(--accent-color, #000);
   line-height: 90%;
-  padding-top: 12px;
-  padding-bottom: 18px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   padding-right: 20px;
   padding-left: 20px;
   min-width: 310px;
-  color: currentColor;
+  color: var(--button-color);
   box-shadow: 0 0 0 0 var(--accent-color, #000);
   transition: box-shadow 0.3s ease, color 1s ease;
   overflow: hidden;
-}
-
-@media (376px <= width) {
-  .footer__floppy {
-    width: 21px;
-    height: 21px;
-  }
 }
 
 .footer__button:focus {
@@ -333,7 +417,8 @@
 }
 
 .footer__button:focus-visible {
-  outline: 2px solid var(--accent-color, #000);
+  outline: none;
+  border: 2px solid var(--accent-color, #000);
   box-shadow: 2px 2px 0 0 var(--accent-color, #000);
 }
 
@@ -353,19 +438,14 @@
   transform: scaleX(1);
 }
 
-.footer__button:hover {
-  color: var(--bg-color, #fff);
-}
-
 .footer__floppy {
   display: inline-block;
-  min-width: 21px;
-  min-height: 21px;
-  max-width: 28px;
-  max-height: 28px;
+  width: 21px;
+  height: 21px;
   margin-top: 2px;
   position: relative;
   z-index: 1;
+  mix-blend-mode: difference;
 }
 
 .footer__button-text {
@@ -373,4 +453,111 @@
   margin-left: -9px;
 }
 
+.dialog {
+  width: 360px;
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+}
 
+.dialog__text {
+  display: inline-block;
+  font-family: var(--accent-font, monospace);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog[open] .dialog__memory {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__floppy {
+  width: 39px;
+  height: 39px;
+  display: inline-block;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding: 30px;
+}
+
+.dialog__button {
+  position: relative;
+  min-width: 257px;
+  max-width: 293px;
+  border: 2px solid var(--accent-color, #000);
+  padding: 12px 130px;
+  box-shadow: 0 0 0 0 var(--accent-color, #000);
+  transition: box-shadow 0.3s ease, color 1s ease;
+  overflow: hidden;
+}
+
+.dialog__button::after {
+  position: absolute;
+  content: "";
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background-color: var(--accent-color, #000);
+  top: -2px;
+  left: -2px;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.dialog__button:hover::after {
+  transform: translateX(0);
+}
+
+.dialog__button:focus {
+  outline: none;
+}
+
+.dialog__button:focus-visible {
+  outline: none;
+  border: 2px solid var(--accent-color, #000);
+  box-shadow: 2px 2px 0 0 var(--accent-color, #000);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.filter-contrast {
+  filter: contrast(85%);
+}
+
+.filter-grayscale {
+  filter: grayscale(50%);
+}
+
+.filter-saturate {
+  filter: saturate(125%);
+}
+
+.filter-invert {
+  filter: invert(15%);
+}
+
+.filter-brightness {
+  filter: brightness(110%);
+}
+
+.filter-sepia {
+  filter: sepia(10%);
+}
+
+.filter-br-op {
+  filter: brightness(90%) opacity(90%);
+}
+
+.filter-contr {
+  filter: contrast(95%);
+}
